@@ -1,0 +1,7 @@
+xtab - simple container for Xembeded programs.
+Compilations needs X headers.
+Installation:
+	# mk install
+
+xtab is fork of tabbed produced by Suckless.
+Suckless, thank you.

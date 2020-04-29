@@ -1,0 +1,28 @@
+CC = tcc
+LD = $CC
+NAME = xtab
+USR = /usr
+ROOT = $USR/local
+
+USRINC = $USR/include
+USRLIB = $USR/lib
+
+X11 = $USR/X11R6
+X11INC = $X11/include
+X11LIB = $X11/lib
+
+# Freetype.
+FTINC = $USRINC/freetype2
+FTLIB = -lfontconfig -lXft
+# OpenBSD(Uncomment).
+#FTINC = $X11INC
+
+# Solaris
+#ADDCFLAGS = $ADDCFLAGS -fast $INCS -DVERSION=\"$VERSION\"
+#LDFLAGS = ${LIBS}
+
+INC = -I. -I$USRINC -IX11INC -I$FTINC
+LIB = -L$USRLIB -lc -L$X11LIB -lX11 $FTLIB
+
+ADDCFLAGS = $ADDCFLAGS -std=c99 -pedantic -Wall -Os
+#ADDCFLAGS =  $ADDCFLAGS -O3

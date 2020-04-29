@@ -167,7 +167,7 @@ static int (*xerrorxlib)(Display *, XErrorEvent *);
 static int cmd_append_pos;
 static char winid[64];
 static char **cmd;
-static char *wmname = "tabbed";
+static char *wmname = "xtab";
 static const char *geometry;
 
 char *argv0;
@@ -435,11 +435,11 @@ expose(const XEvent *e)
 void
 focus(int c)
 {
-	char buf[BUFSIZ] = "tabbed-"VERSION" ::";
+	char buf[BUFSIZ] = "xtab-"VERSION" ::";
 	size_t i, n;
 	XWMHints* wmh;
 
-	/* If c, sel and clients are -1, raise tabbed-win itself */
+	/* If c, sel and clients are -1, raise xtab-win itself */
 	if (nclients == 0) {
 		cmd[cmd_append_pos] = NULL;
 		for(i = 0, n = strlen(buf); cmd[i] && n < sizeof(buf); i++)
@@ -839,7 +839,7 @@ propertynotify(const XEvent *e)
 			if (c != sel) {
 				if (urgentswitch && wmh &&
 				    !(wmh->flags & XUrgencyHint)) {
-					/* only switch, if tabbed was focused
+					/* only switch, if xtab was focused
 					 * since last urgency hint if WMHints
 					 * could not be received,
 					 * default to no switch */
@@ -852,7 +852,7 @@ propertynotify(const XEvent *e)
 				}
 			}
 			if (wmh && !(wmh->flags & XUrgencyHint)) {
-				/* update tabbed urgency hint
+				/* update xtab urgency hint
 				 * if not set already */
 				wmh->flags |= XUrgencyHint;
 				XSetWMHints(dpy, win, wmh);
@@ -1041,7 +1041,7 @@ setup(void)
 	xerrorxlib = XSetErrorHandler(xerror);
 
 	class_hint.res_name = wmname;
-	class_hint.res_class = "tabbed";
+	class_hint.res_class = "xtab";
 	XSetClassHint(dpy, win, &class_hint);
 
 	size_hint = XAllocSizeHints();
@@ -1324,7 +1324,7 @@ main(int argc, char *argv[])
 		urgbgcolor = EARGF(usage());
 		break;
 	case 'v':
-		die("tabbed-"VERSION", © 2009-2016 tabbed engineers, "
+		die("xtab-"VERSION", © 2009-2016 xtab engineers, "
 		    "see LICENSE for details.\n");
 		break;
 	default:

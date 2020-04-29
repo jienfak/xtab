@@ -1,8 +1,8 @@
-.TH TABBED 1 tabbed\-VERSION
+.TH TABBED 1 xtab\-VERSION
 .SH NAME
-tabbed \- generic tabbed interface
+xtab \- generic xtab interface
 .SH SYNOPSIS
-.B tabbed
+.B xtab
 .RB [ \-c ]
 .RB [ \-d ]
 .RB [ \-k ]
@@ -30,27 +30,27 @@ tabbed \- generic tabbed interface
 .IR narg ]
 .RI [ "command ..." ]
 .SH DESCRIPTION
-.B tabbed
-is a simple tabbed container for applications which support XEmbed. Tabbed
-will then run the provided command with the xid of tabbed as appended
+.B xtab
+is a simple xtab container for applications which support XEmbed. Tabbed
+will then run the provided command with the xid of xtab as appended
 argument. (See EXAMPLES.) The automatic spawning of the command can be
 disabled by providing the -s parameter. If no command is provided
-tabbed will just print its xid and run no command.
+xtab will just print its xid and run no command.
 .SH OPTIONS
 .TP
 .B \-c
-close tabbed when the last tab is closed. Mutually exclusive with -f.
+close xtab when the last tab is closed. Mutually exclusive with -f.
 .TP
 .B \-d
-detaches tabbed from the terminal and prints its XID to stdout.
+detaches xtab from the terminal and prints its XID to stdout.
 .TP
 .B \-f
-fill up tabbed again by spawning the provided command, when the last tab is
+fill up xtab again by spawning the provided command, when the last tab is
 closed. Mutually exclusive with -c.
 .TP
 .BI \-g " geometry"
 defines the X11 geometry string, which will fixate the height and width of
-tabbed.
+xtab.
 The syntax is
 .RI [=][ width {xX} height ][{+-} xoffset {+-} yoffset ].
 See
@@ -58,7 +58,7 @@ See
 for further details.
 .TP
 .B \-k
-close foreground tabbed client (instead of tabbed and all clients) when
+close foreground xtab client (instead of xtab and all clients) when
 WM_DELETE_WINDOW is sent.
 .TP
 .BI \-n " name"
@@ -147,17 +147,17 @@ jumps to nth tab
 .B F11
 Toggle fullscreen mode.
 .SH EXAMPLES
-$ tabbed surf -e
+$ xtab surf -e
 .TP
-$ tabbed urxvt -embed
+$ xtab urxvt -embed
 .TP
-$ tabbed xterm -into
+$ xtab xterm -into
 .TP
-$ $(tabbed -d >/tmp/tabbed.xid); urxvt -embed $(</tmp/tabbed.xid);
+$ $(xtab -d >/tmp/xtab.xid); urxvt -embed $(</tmp/xtab.xid);
 .TP
-$ tabbed -r 2 st -w '' -e tmux
+$ xtab -r 2 st -w '' -e tmux
 .SH CUSTOMIZATION
-.B tabbed
+.B xtab
 can be customized by creating a custom config.h and (re)compiling the source
 code. This keeps it fast, secure and simple.
 .SH AUTHORS
