@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "monospace:size=9";
+static const char font[]        = "Consolas:pixelsize=14:antialias=true:autohint=true";
 static const char* normbgcolor  = "#ffffff";
 static const char* normfgcolor  = "#000000";
 static const char* selbgcolor   = "#000000";
